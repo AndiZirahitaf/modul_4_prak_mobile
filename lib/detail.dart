@@ -17,7 +17,6 @@ class DetailPage extends StatelessWidget {
               products[productIndex].image,
               width: double.infinity,
               height: 300,
-              fit: BoxFit.cover,
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
