@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:testing_modul/detail.dart' show DetailPage;
-import 'package:testing_modul/models/data.dart';
+import 'detail.dart';
+import 'models/data.dart';
 
-class HomePage extends StatefulWidget {
-  final String username;
-  const HomePage({super.key, required this.username});
+class HomePage extends StatelessWidget {
+  final String nama;
+  const HomePage({super.key, required this.nama});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Halo, ${widget.username}!')),
+      appBar: AppBar(
+        title: Text(
+          'Halo!, $nama!',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.blue,
+      ),
       body: ListView.builder(
         itemCount: products.length,
-        itemBuilder: (_, index) {
+        itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
               Navigator.push(
@@ -27,10 +28,16 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             },
+
             child: ListTile(
               title: Text(products[index].name),
               subtitle: Text('Rp ${products[index].price}'),
-              leading: Image.network(products[index].image),
+              leading: Image.network(
+                products[index].image,
+                width: 50,
+                height: 50,
+                fit: BoxFit.cover,
+              ),
               trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
             ),
           );

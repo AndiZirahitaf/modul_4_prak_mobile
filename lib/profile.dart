@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:testing_modul/login.dart' show LoginPage;
+import 'login.dart';
 
 class ProfilePage extends StatelessWidget {
-  final String username;
-  const ProfilePage({Key? key, required this.username}) : super(key: key);
+  final String nama;
+  const ProfilePage({super.key, required this.nama});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class ProfilePage extends StatelessWidget {
               Icon(Icons.account_circle, size: 100, color: Colors.blue),
               SizedBox(height: 20),
               Text(
-                username,
+                nama,
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 40),
@@ -29,12 +29,12 @@ class ProfilePage extends StatelessWidget {
                     (route) => false,
                   );
                 },
-                child: Text('Logout'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepOrangeAccent,
                   foregroundColor: Colors.white,
                   minimumSize: Size(200, 45),
                 ),
+                child: Text('Logout'),
               ),
             ],
           ),
