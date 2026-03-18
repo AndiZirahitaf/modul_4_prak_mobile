@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
       body: ListView.builder(
         itemCount: products.length,
         itemBuilder: (context, index) {
-          return GestureDetector(
+          return ListTile(
             onTap: () {
               Navigator.push(
                 context,
@@ -28,18 +28,15 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-
-            child: ListTile(
-              title: Text(products[index].name),
-              subtitle: Text('Rp ${products[index].price}'),
-              leading: Image.network(
-                products[index].image,
-                width: 50,
-                height: 50,
-                fit: BoxFit.cover,
-              ),
-              trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
+            title: Text(products[index].name),
+            subtitle: Text('Rp ${products[index].price}'),
+            leading: Image.network(
+              products[index].image,
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
             ),
+            trailing: Icon(Icons.arrow_forward_ios, color: Colors.black54),
           );
         },
       ),
